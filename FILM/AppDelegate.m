@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;  //navigationController.topViewController的topViewController意味着它是navigationController的栈里面的top的那一个
     splitViewController.delegate = self;
     return YES;
 }

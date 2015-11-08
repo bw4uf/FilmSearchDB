@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "DouBanDetailViewController.h"
 
 @interface MasterViewController ()
 
@@ -20,12 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;  //控制是否清除选中一个cell
     [super viewWillAppear:animated];
 }
 
@@ -34,14 +34,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)insertNewObject:(id)sender {
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
 
 #pragma mark - Segues
 
@@ -63,7 +55,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,15 +63,27 @@
 
     if (indexPath.row == 0) {
         cell.textLabel.text = @"IMDB";
-    } else {
+    } else if (indexPath.row == 1){
         cell.textLabel.text = @"豆瓣";
+    }  else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     }
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        NSLog(@"//////////////////////////////////");
+//        [[self.navigationController.viewControllers lastObject] removeFromParentViewController]; //lastObject means MasterViewController and this method makes masterViewController removed,
+    }else{
+        NSLog(@"%ld",(long)indexPath.row);
+    }
+
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
