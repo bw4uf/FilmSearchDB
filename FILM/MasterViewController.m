@@ -55,7 +55,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -65,8 +65,6 @@
         cell.textLabel.text = @"IMDB";
     } else if (indexPath.row == 1){
         cell.textLabel.text = @"豆瓣";
-    }  else {
-        cell.textLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     }
     return cell;
 }
@@ -75,8 +73,6 @@
     if (indexPath.row == 1) {
         NSLog(@"//////////////////////////////////");
 //        [[self.navigationController.viewControllers lastObject] removeFromParentViewController]; //lastObject means MasterViewController and this method makes masterViewController removed,
-    }else{
-        NSLog(@"%ld",(long)indexPath.row);
     }
 
 }

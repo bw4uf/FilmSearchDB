@@ -14,41 +14,22 @@
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *releasedLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *plotLabel;
-
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
-
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *trailingMarginValue;
-
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *plotLabelWidth;
-
 @property (weak, nonatomic) IBOutlet UIImageView *Poster;
-
 @end
 
 @implementation DetailViewController
 
-
+#pragma mark - life cycle
+//viewDidLoad里面只做addSubview的事情
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(statusBarOrientationChange:)
-                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
-    if (currentOrientation == UIDeviceOrientationLandscapeLeft || currentOrientation == UIDeviceOrientationLandscapeRight) {
-        self.plotLabelWidth.constant = 200;
-        self.trailingMarginValue.constant = 0;
-    } else {
-        self.plotLabelWidth.constant = 628;
-        self.trailingMarginValue.constant = 180;
-    }
     
     self.searchText.delegate = self;
     
@@ -62,6 +43,25 @@
     
     self.searchText.alpha = 0.4;
     self.Poster.alpha = 0.0;
+}
+
+//viewWillAppear里面做布局的事情
+- (void)viewWillAppear:(BOOL)animated {
+    if (currentOrientation == UIDeviceOrientationLandscapeLeft || currentOrientation == UIDeviceOrientationLandscapeRight) {
+        self.plotLabelWidth.constant = 200;
+        self.trailingMarginValue.constant = 0;
+    } else {
+        self.plotLabelWidth.constant = 628;
+        self.trailingMarginValue.constant = 180;
+    }
+}
+
+//viewDidAppear里面做Notification的监听之类的事情
+- (void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(statusBarOrientationChange:)
+                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
+                                               object:nil];
 }
 
 #pragma mark - 键盘处理

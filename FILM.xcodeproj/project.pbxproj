@@ -22,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		EE245BF21BEE4D2C0049F5F2 /* twinkle1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = twinkle1.gif; sourceTree = "<group>"; };
+		EE3EF1FB1BEF90FD00EBBF72 /* CodeStandard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeStandard.h; sourceTree = "<group>"; };
 		EE830E381BE79EA100FF3A17 /* DouBanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DouBanDetailViewController.h; sourceTree = "<group>"; };
 		EE830E391BE79EA100FF3A17 /* DouBanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DouBanDetailViewController.m; sourceTree = "<group>"; };
 		EE830E3A1BE79EA100FF3A17 /* DouBanDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DouBanDetailViewController.xib; sourceTree = "<group>"; };
@@ -72,8 +73,6 @@
 		EECAD6901BDF64FA007FD654 /* FILM */ = {
 			isa = PBXGroup;
 			children = (
-				EECAD6941BDF64FA007FD654 /* AppDelegate.h */,
-				EECAD6951BDF64FA007FD654 /* AppDelegate.m */,
 				EECAD6971BDF64FA007FD654 /* MasterViewController.h */,
 				EECAD6981BDF64FA007FD654 /* MasterViewController.m */,
 				EE830E381BE79EA100FF3A17 /* DouBanDetailViewController.h */,
@@ -81,13 +80,6 @@
 				EE830E3A1BE79EA100FF3A17 /* DouBanDetailViewController.xib */,
 				EECAD69A1BDF64FA007FD654 /* DetailViewController.h */,
 				EECAD69B1BDF64FA007FD654 /* DetailViewController.m */,
-				EECAD69D1BDF64FA007FD654 /* Main.storyboard */,
-				EECAD6A01BDF64FA007FD654 /* Assets.xcassets */,
-				EECAD6A21BDF64FA007FD654 /* LaunchScreen.storyboard */,
-				EECAD6A51BDF64FA007FD654 /* Info.plist */,
-				EECAD6AB1BE36E82007FD654 /* apple.jpg */,
-				EE830E3D1BECA2CF00FF3A17 /* FILM-PrefixHeader.pch */,
-				EE830E3E1BECA33600FF3A17 /* UICustomDefine.h */,
 				EECAD6911BDF64FA007FD654 /* Supporting Files */,
 			);
 			path = FILM;
@@ -96,6 +88,16 @@
 		EECAD6911BDF64FA007FD654 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EECAD6941BDF64FA007FD654 /* AppDelegate.h */,
+				EECAD6951BDF64FA007FD654 /* AppDelegate.m */,
+				EECAD69D1BDF64FA007FD654 /* Main.storyboard */,
+				EECAD6A21BDF64FA007FD654 /* LaunchScreen.storyboard */,
+				EECAD6A01BDF64FA007FD654 /* Assets.xcassets */,
+				EECAD6A51BDF64FA007FD654 /* Info.plist */,
+				EE830E3E1BECA33600FF3A17 /* UICustomDefine.h */,
+				EECAD6AB1BE36E82007FD654 /* apple.jpg */,
+				EE830E3D1BECA2CF00FF3A17 /* FILM-PrefixHeader.pch */,
+				EE3EF1FB1BEF90FD00EBBF72 /* CodeStandard.h */,
 				EECAD6921BDF64FA007FD654 /* main.m */,
 				EE245BF21BEE4D2C0049F5F2 /* twinkle1.gif */,
 			);
